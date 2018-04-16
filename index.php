@@ -1,4 +1,7 @@
 <?php
+/*
+    Page d'accueil
+*/
     $titlePage = "Accueil";
     $idPage = "index";
 
