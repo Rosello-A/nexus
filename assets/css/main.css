@@ -1,0 +1,220 @@
+/* 
+    ROSELLO Anthony
+    Créé le: 14/04/2018
+
+    Description:
+        Feuille de style concernant les éléments communs à tout le site.
+
+    Carnet Modification:
+
+    1- Rosello Anthony ( 15/04/2018 ) :
+
+        Paufinage:
+            - Paufinage .category
+*/
+
+
+/* 
+   _____ ____  __  __ __  __ _    _ _   _ 
+  / ____/ __ \|  \/  |  \/  | |  | | \ | |
+ | |   | |  | | \  / | \  / | |  | |  \| |
+ | |   | |  | | |\/| | |\/| | |  | | . ` |
+ | |___| |__| | |  | | |  | | |__| | |\  |
+  \_____\____/|_|  |_|_|  |_|\____/|_| \_|
+                                          
+                                          
+*/
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background: #1a1a1a;
+    overflow-x: hidden;
+}
+
+
+h2{
+    color: #15eff1;
+    text-transform: uppercase;
+    margin-bottom: 3em;
+    font-size: 1.5em;
+}
+
+/* 
+  _    _ ______          _____  ______ _____  
+ | |  | |  ____|   /\   |  __ \|  ____|  __ \ 
+ | |__| | |__     /  \  | |  | | |__  | |__) |
+ |  __  |  __|   / /\ \ | |  | |  __| |  _  / 
+ | |  | | |____ / ____ \| |__| | |____| | \ \ 
+ |_|  |_|______/_/    \_\_____/|______|_|  \_\
+
+*/
+
+#header{
+    display: flex;
+    padding: 3em 10%;
+    max-height: 15em;
+}
+
+/* Logo */
+#header img{
+    width: 150px;
+}
+
+/* Menu */
+#header nav{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 0 0 auto;
+}
+
+/* Liens du menu */
+#header nav a{
+    position: relative;
+    align-self: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    text-transform: uppercase;
+    text-align: center;
+    transition: all .5s ease;
+}
+
+/* Liens au survol */
+#header nav a:hover{
+    text-shadow: 0px 0px 5px white;
+}
+
+/* Création des éléments before sauf pour le dernier lien (Actuellement: Facebook) */
+#header nav a:not(:last-child)::before{
+    content : '▲';
+    display: block;
+    margin-top: 15px;
+    margin-left: 40%;
+}
+
+/* Création des éléments after sauf pour le dernier lien (Actuellement Facebook) */
+
+#header nav a:not(:last-child)::after{
+    content : '▼';
+    display: block;
+    margin-top: -35px;
+    margin-left: 40%;
+}
+
+/* Création paramètres communs aux éléments after & before */
+#header nav a::before, #header nav a::after{
+    opacity: 0;
+    position: absolute;
+    color: cyan;
+    transition: all .5s ease;
+}
+
+/* Comportement des after & before quand un lien est survolé */
+#header nav a:hover::before, #header nav a:hover::after{
+    opacity: 1;
+    position: absolute;
+    color: cyan;
+    text-shadow: 0px 0px 10px cyan;
+}
+
+/* Lien Facebook dans le menu de navigation */
+.fa-facebook{
+    font-size: 2em;
+}
+
+.fa-facebook:hover{
+    color: cyan;
+}
+
+/*
+  __  __          _____ _   _ 
+ |  \/  |   /\   |_   _| \ | |
+ | \  / |  /  \    | | |  \| |
+ | |\/| | / /\ \   | | | . ` |
+ | |  | |/ ____ \ _| |_| |\  |
+ |_|  |_/_/    \_\_____|_| \_|
+                              
+*/                              
+
+main{
+    background: #212121;
+    width: 80%;
+    margin: auto;
+    padding: 3em;
+}
+
+
+
+
+/*
+  ______ ____   ____ _______ ______ _____  
+ |  ____/ __ \ / __ \__   __|  ____|  __ \ 
+ | |__ | |  | | |  | | | |  | |__  | |__) |
+ |  __|| |  | | |  | | | |  |  __| |  _  / 
+ | |   | |__| | |__| | | |  | |____| | \ \ 
+ |_|    \____/ \____/  |_|  |______|_|  \_\
+                                            */
+                                    
+
+/* 
+   _____ _                _____ _____ 
+  / ____| |        /\    / ____/ ____|
+ | |    | |       /  \  | (___| (___  
+ | |    | |      / /\ \  \___ \\___ \ 
+ | |____| |____ / ____ \ ____) |___) |
+  \_____|______/_/    \_\_____/_____/ 
+                                      
+                                      
+*/
+
+#btn-mobile-nav{
+    display: none;
+}
+
+.category{ /*A appliquer à toutes les sections principales à la suite des "main"*/
+    margin: 2em 0 3em 0;
+}
+
+@media screen and (max-width: 1122px){
+    #header{
+        padding: 5% 10%;
+    }
+
+    #header img{
+        width: 100px;
+        height: 100px;
+    }
+
+    #header nav{
+        width: 100%;
+        position: absolute;
+        flex-direction: column;
+        right: -100%;
+        top: 40%;
+        background: black;
+        z-index: 10;
+        height: 100%;
+        transition: right 1s ease;
+    }
+    #header nav a{
+        margin: 2em 0;
+    }
+
+    #btn-mobile-nav{
+        display: block;
+        position: absolute;
+        right: 15%;
+        top: 5%;
+        background: none;
+        border: none;
+    }
+
+    #btn-mobile-nav > .fa-bars{
+        color: white;
+        font-size: 5em;
+    }
+}
